@@ -10,18 +10,25 @@ El objetivo es **predecir la demanda en la primera semana de 2024** (dataset *te
 ---
 
 ## Preparación de los datos
+
 Para trabajar de manera eficiente, transformamos los datos originales a formato **Parquet**, lo que permite un acceso más rápido y escalable.
 
 ```bash
 pixi run to_parquet
 ```
+
 Luego generamos dos datasets en formato wide (uno para train y otro para test), asegurando que contengan los mismos features y sean totalmente compatibles:
+
 ```bash
 pixi run to_wide
 pixi run expand_test_features
 ```
+
+Estos archivos se encuentran en la carpeta data_preparation. Para correrlos hay que subir los .csv a data. 
+
 ---
 ## Modelos implementados
+
 1. **Estimación de precios con HistGradientBoostingRegressor (HGBR)**  
    Entrenamos un modelo de boosting para estimar la demanda en función de:
    - Variables categóricas (producto, tienda, subgrupo, etc.)
@@ -42,9 +49,12 @@ pixi run expand_test_features
    Con `scipy.optimize` buscamos el precio $p$ que maximiza la ganancia esperada para cada subgrupo de productos.
 
 ---
+
 ## Entorno de trabajo
 
 Toda la gestión de dependencias y ejecución de comandos se realizó con pixi, lo que asegura entornos reproducibles.
 ```bash
 pixi run <comando>
 ```
+
+Ref: https://pixi.sh/latest/
