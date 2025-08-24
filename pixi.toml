@@ -1,10 +1,6 @@
 [workspace]
 channels = ["https://prefix.dev/conda-forge"]
-name = "eci2025"
 platforms = ["osx-arm64", "linux-64", "win-64"]
-
-[environments]
-tex = ["tex"]
 
 [dependencies]
 python = "*"
@@ -16,9 +12,6 @@ seaborn = "*"
 scikit-learn = "*"
 tqdm = "*"
 ipywidgets = "*"
-
-[pypi-dependencies]
-florcitas = { path = ".", editable = true }
 
 [tasks.to_parquet]
 cmd = "python data_preparation/to_parquet.py"
@@ -34,9 +27,3 @@ outputs = ["data/wide.parquet"]
 cmd = "python data_preparation/expand_test_features.py"
 inputs = ["data_preparation/expand_test_features.py", "data/*.parquet"]
 outputs = ["data/ids_test_expanded.parquet"]
-
-[feature.tex.dependencies]
-tectonic = "*"
-
-[feature.tex.tasks]
-tectonic = { cmd = "tectonic", cwd = "informe" }
