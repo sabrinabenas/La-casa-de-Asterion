@@ -21,18 +21,18 @@ ipywidgets = "*"
 florcitas = { path = ".", editable = true }
 
 [tasks.to_parquet]
-cmd = "python scripts/to_parquet.py"
-inputs = ["scripts/to_parquet.py"]
+cmd = "python data_preparation/to_parquet.py"
+inputs = ["data_preparation/to_parquet.py"]
 outputs = ["data/*.parquet"]
 
 [tasks.to_wide]
-cmd = "python scripts/to_wide.py"
-inputs = ["scripts/to_wide.py"]
+cmd = "python data_preparation/to_wide.py"
+inputs = ["data_preparation/to_wide.py"]
 outputs = ["data/wide.parquet"]
 
 [tasks.expand_test_features]
-cmd = "python scripts/expand_test_features.py"
-inputs = ["scripts/expand_test_features.py", "data/*.parquet"]
+cmd = "python data_preparation/expand_test_features.py"
+inputs = ["data_preparation/expand_test_features.py", "data/*.parquet"]
 outputs = ["data/ids_test_expanded.parquet"]
 
 [feature.tex.dependencies]
