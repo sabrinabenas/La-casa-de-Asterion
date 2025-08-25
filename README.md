@@ -53,6 +53,14 @@ Estos archivos se encuentran en la carpeta data_preparation. Para correrlos hay 
 ## Entorno de trabajo
 
 Toda la gestión de dependencias y ejecución de comandos se realizó con pixi, lo que asegura entornos reproducibles.
+
+Para inicializar el entorno ejecutar 
+```bash
+pixi install
+pixi shell
+```
+y para cada comando:
+
 ```bash
 pixi run <comando>
 ```
